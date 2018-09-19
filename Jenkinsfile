@@ -2,8 +2,12 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      environment {
+        commitName = sh(script: 'git log -1 --format=\'%an <%ae>\'')
+      }
       steps {
         sh 'git log -1 --format=\'%an <%ae>\''
+        echo commitName
         sh 'git show --name-only'
         milestone(label: 'build', ordinal: 1)
         echo 'compiling...'
