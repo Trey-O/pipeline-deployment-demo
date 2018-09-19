@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       when {
         expression {
-          return commitName.contains("admin")
+          return commitName.contains("test")
         }
 
       }
