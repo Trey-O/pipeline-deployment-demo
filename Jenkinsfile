@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       environment {
-        commitName = sh(script: 'git log -1 --format=\'%an <%ae>\'')
+        commitName = sh(script: "git log -1 --format='%an <%ae>'", returnStdout: true)
       }
       steps {
         sh 'git log -1 --format=\'%an <%ae>\''
