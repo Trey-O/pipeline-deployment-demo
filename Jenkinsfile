@@ -2,10 +2,8 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      when {
-        changelog 'Trey'
-      }
       steps {
+        sh 'git show --name-only'
         milestone(label: 'build', ordinal: 1)
         echo 'compiling...'
         sh 'touch a.jar'
