@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'git log --format=\'%an <%ae>\''
+        sh 'git log -1 --pretty=format:\'%an\''
         sh 'git show --name-only'
         milestone(label: 'build', ordinal: 1)
         echo 'compiling...'
