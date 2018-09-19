@@ -8,9 +8,6 @@ pipeline {
         }
 
       }
-      environment {
-        commitName = sh(script: "git log -1 --format='%an <%ae>'", returnStdout: true)
-      }
       steps {
         sh 'git log -1 --format=\'%an <%ae>\''
         echo commitName
@@ -44,5 +41,8 @@ pipeline {
         echo 'Deploying...'
       }
     }
+  }
+  environment {
+    commitName = sh(script: "git log -1 --format='%an <%ae>'", returnStdout: true)
   }
 }
