@@ -2,6 +2,12 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      when {
+        expression {
+          return commitName.contains("admin")
+        }
+
+      }
       environment {
         commitName = sh(script: "git log -1 --format='%an <%ae>'", returnStdout: true)
       }
