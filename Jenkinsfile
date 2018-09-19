@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       when {
-        changelog 'Trey-O'
+        changelog 'Trey'
       }
       steps {
         milestone(label: 'build', ordinal: 1)
