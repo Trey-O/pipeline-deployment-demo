@@ -18,6 +18,11 @@ pipeline {
         stash(includes: 'a.jar', name: 'myApp')
       }
     }
+    stage('ViewTest') {
+      steps {
+        echo 'CAN YOU SEE IT????'
+      }
+    }
     stage('Test') {
       steps {
         unstash 'myApp'
