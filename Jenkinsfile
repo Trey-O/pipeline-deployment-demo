@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       when {
         expression {
-          return commitName.contains("test")
+          return commitName.contains("admin")
         }
 
       }
@@ -21,6 +21,7 @@ pipeline {
     stage('ViewTest') {
       steps {
         echo 'CAN YOU SEE IT????'
+        echo 'testing'
       }
     }
     stage('Test') {
