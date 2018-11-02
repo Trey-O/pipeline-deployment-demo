@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+    label 'ssh'
+  }
   stages {
     stage('Build') {
       when {
@@ -43,12 +45,24 @@ pipeline {
       }
     }
     stage('Test') {
+      when {
+        expression {
+          return commitName.contains("admin")
+        }
+
+      }
       steps {
         unstash 'myApp'
         echo 'testing...'
       }
     }
     stage('Approval') {
+      when {
+        expression {
+          return commitName.contains("admin")
+        }
+
+      }
       steps {
         checkpoint 'ready for approval'
         script {
@@ -60,6 +74,12 @@ pipeline {
       }
     }
     stage('Deploy') {
+      when {
+        expression {
+          return commitName.contains("admin")
+        }
+
+      }
       steps {
         unstash 'myApp'
         echo 'Deploying...'
