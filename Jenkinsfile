@@ -18,6 +18,19 @@ pipeline {
         stash(includes: 'a.jar', name: 'myApp')
       }
     }
+    stage('CustomTesting') {
+      steps {
+        echo 'Custom Testing beginning with script and for loops to run'
+        script {
+          def arrayList = new ArrayList<String>();
+          arrayList.add("A");
+          arrayList.add("B");
+          arrayList.add("C");
+          system.out.println(arrayList.get(2))
+        }
+
+      }
+    }
     stage('ViewTest') {
       steps {
         echo 'CAN YOU SEE IT????'
