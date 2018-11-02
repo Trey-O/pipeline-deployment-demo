@@ -22,7 +22,7 @@ pipeline {
       steps {
         echo 'Custom Testing beginning with script and for loops to run'
         script {
-          def arrayList = new ArrayList<String>();
+          ArrayList<String> arrayList = new ArrayList<String>();
           arrayList.add("A");
           arrayList.add("B");
           arrayList.add("C");
