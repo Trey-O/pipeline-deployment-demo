@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    label 'ssh'
-  }
+  agent any
   stages {
     stage('Build') {
       when {
