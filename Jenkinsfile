@@ -27,9 +27,11 @@ pipeline {
           arrayList.add("B");
           arrayList.add("C");
           for (int i = 0; i < arrayList.size(); i++) {
-            stage("Internal For Loop Stage") {
-              checkpoint "nested stage for loop checkpoint"
-              echo "test"
+            stage("Internal For Loop Stage Number: ${i}") {
+              checkpoint "Nested Stage Number: ${i}"
+              node{
+                echo "test"
+              }
             }
           }
         }
