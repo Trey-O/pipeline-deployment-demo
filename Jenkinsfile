@@ -25,8 +25,7 @@ pipeline {
           ArrayList<String> arrayList = new ArrayList<String>();
           arrayList.add("A");
           arrayList.add("B");
-          arrayList.add("C");
-          system.out.println(arrayList.get(2))
+          arrayList.add("C")
         }
 
       }
