@@ -42,7 +42,6 @@ pipeline {
     stage('ViewTest') {
       steps {
         echo 'CAN YOU SEE IT????'
-        echo 'testing'
       }
     }
     stage('Test') {
