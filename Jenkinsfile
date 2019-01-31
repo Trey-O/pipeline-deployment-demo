@@ -11,6 +11,7 @@ pipeline {
       steps {
         sh 'git log -1 --format=\'%an <%ae>\''
         echo commitName
+        echo "test"
         sh 'git show --name-only'
         milestone(label: 'build', ordinal: 1)
         echo 'compiling...'
