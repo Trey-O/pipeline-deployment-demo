@@ -4,7 +4,7 @@ pipeline {
 		stage('Build') {
 			agent any
 			steps {
-				step{
+				script{
 				def git_branch
 				git_branch = sh returnStdout: true, script: "git rev-parse --abbrev-ref HEAD"
 				//sh "git_branch= cat GIT_BRANCH"
