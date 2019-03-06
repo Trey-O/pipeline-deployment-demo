@@ -10,11 +10,13 @@ pipeline {
 				echo 'compiling...'
 				sh 'touch a.jar'
 				sh 'printenv' 
-				sh 'echo ${git.BRANCH_NAME}'
 				stash includes: 'a.jar', name: 'myApp'
 				echo '${git.branchName}'
 				echo '${git.BRANCHNAME}'
 				echo '$BRANCH_NAME'
+				echo '${git.GIT_LOCAL_BRANCH}'
+				echo '${GIT_LOCAL_BRANCH}'
+				echo '$GIT_LOCAL_BRANCH'
 			}
 		}
 	}
