@@ -29,7 +29,7 @@ pipeline {
     				//    echo git_branch
    				 //  '''
     				sh "git rev-parse --abbrev-ref HEAD > 'GIT_BRANCH'"
-				sh "git_branch=$(<GIT_BRANCH)"
+				sh "git_branch=${<GIT_BRANCH}"
 				sh 'echo $git_branch'
 				
 			}
