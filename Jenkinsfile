@@ -24,7 +24,7 @@ pipeline {
 				//sh 'GIT_LOCAL_BRANCH'
 				sh 'echo $GIT_LOCAL_BRANCH'
 				sh '''
-    				    git rev-parse --abbrev-ref HEAD > GIT_BRANCH'
+    				    git rev-parse --abbrev-ref HEAD > 'GIT_BRANCH'
     				    git_branch = readFile('GIT_BRANCH').trim()
     				    echo git_branch
    				   '''
