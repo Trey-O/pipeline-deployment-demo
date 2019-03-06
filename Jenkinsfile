@@ -5,6 +5,9 @@ pipeline {
 			agent any
 			steps {
 				def git_branch
+				git_branch = sh returnStdout: true, script: "git rev-parse --abbrev-ref HEAD"
+				//sh "git_branch= cat GIT_BRANCH"
+				sh "echo ${git_branch}"
 				// https://jenkins.io/blog/2016/10/16/stage-lock-milestone/
 				// The first milestone step starts tracking concurrent build order
 				milestone label: 'build', ordinal: 1
@@ -31,9 +34,7 @@ pipeline {
    				 //  '''
 				
 					
-    					git_branch = sh returnStdout: true, script: "git rev-parse --abbrev-ref HEAD"
-					//sh "git_branch= cat GIT_BRANCH"
-					sh "echo ${git_branch}"
+    					
 			
 				
 			}
