@@ -28,9 +28,10 @@ pipeline {
     				//    git_branch = readFile('GIT_BRANCH').trim()
     				//    echo git_branch
    				 //  '''
-    				sh "git rev-parse --abbrev-ref HEAD > 'GIT_BRANCH'"
-				sh "git_branch= cat GIT_BRANCH"
-				sh 'echo $git_branch'
+				def git_branch
+    				git_branch = sh returnStdout: true, script: "git rev-parse --abbrev-ref HEAD"
+				//sh "git_branch= cat GIT_BRANCH"
+				sh "echo ${git_branch}"
 				
 			}
 		}
