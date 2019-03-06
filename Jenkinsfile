@@ -23,12 +23,14 @@ pipeline {
 				echo '${env.GIT_LOCAL_BRANCH}'
 				//sh 'GIT_LOCAL_BRANCH'
 				sh 'echo $GIT_LOCAL_BRANCH'
-				sh '''
-    				    git rev-parse --abbrev-ref HEAD > 'GIT_BRANCH'
-    				    git_branch = readFile('GIT_BRANCH').trim()
-    				    echo git_branch
-   				   '''
-    
+				//sh '''
+    				//    git rev-parse --abbrev-ref HEAD > 'GIT_BRANCH'
+    				//    git_branch = readFile('GIT_BRANCH').trim()
+    				//    echo git_branch
+   				 //  '''
+    				sh "git rev-parse --abbrev-ref HEAD > 'GIT_BRANCH'"
+				sh "git_branch = readFile('GIT_BRANCH').trim()"
+				sh 'echo git_branch'
 				sh 'git rev-parse --abbrev-ref HEAD > GIT_BRANCH'
     sh git_branch = readFile('GIT_BRANCH').trim()
     echo git_branch
