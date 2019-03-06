@@ -21,6 +21,8 @@ pipeline {
 				echo 'GIT_LOCAL_BRANCH'
 				echo 'env.GIT_LOCAL_BRANCH'
 				echo '${env.GIT_LOCAL_BRANCH}'
+				sh 'GIT_LOCAL_BRANCH'
+				sh '$GIT_LOCAL_BRANCH'
 			}
 		}
 	}
