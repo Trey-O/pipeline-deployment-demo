@@ -9,6 +9,8 @@ pipeline {
 				milestone label: 'build', ordinal: 1
 				echo 'compiling...'
 				sh 'touch a.jar'
+				sh 'printenv' 
+				sh 'echo ${git.BRANCH_NAME}'
 				stash includes: 'a.jar', name: 'myApp'
 				echo '${git.branchName}'
 				echo '${git.BRANCHNAME}'
