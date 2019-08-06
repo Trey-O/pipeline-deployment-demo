@@ -34,7 +34,6 @@ pipeline {
 
                 }
                     }
-        }
 	stage('2nd Stage ch-lane') {
                     when {
                         branch 'consolidation'
