@@ -42,6 +42,7 @@ pipeline {
                     //    DOCKER_HOST = "tcp://L17067:2375"
                     //}
                     steps {
+			    echo BRANCH_NAME
 			    echo 'Consolidation Branch' 
                       //  sh 'docker rm -f dps-ingest-api || :'
                       //  sh 'docker image prune -a -f'
