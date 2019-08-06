@@ -17,6 +17,41 @@ pipeline {
 				//stash includes: 'a.jar', name: 'myApp'
 			}
 		}
+		stage('Release Branch Test') {
+                    when {
+                        branch 'release'
+                    }
+                    steps {
+			    echo 'Release Branch'
+                //withCredentials([usernamePassword(credentialsId: '4b33463f-c57a-4b3e-a54b-97faeb0c22cb', passwordVariable: 'docker_password', usernameVariable: 'docker_username')]) {
+                   // sh 'mkdir .docker || echo ".docker directory exists"'
+                    //sh 'export DOCKER_CONFIG=`pwd`/.docker'
+                    //sh 'docker login --username=$docker_username --password=$docker_password $artUrl'
+                    //sh 'docker build --no-cache -t dps-ingest-api:$BRANCH_TAG-$VERSION .'
+
+                    //sh 'docker tag dps-ingest-api:$BRANCH_TAG-$VERSION $artUrl/preservation/dps-ingest-api:$BRANCH_TAG-$VERSION'
+                    //sh 'docker push $artUrl/preservation/dps-ingest-api:$BRANCH_TAG-$VERSION'
+
+                }
+                    }
+        }
+	stage('2nd Stage ch-lane') {
+                    when {
+                        branch 'consolidation'
+                    }
+                    //environment {
+                    //    DOCKER_HOST = "tcp://L17067:2375"
+                    //}
+                    steps {
+			    echo 'Consolidation Branch' 
+                      //  sh 'docker rm -f dps-ingest-api || :'
+                      //  sh 'docker image prune -a -f'
+                      //  sh 'docker pull $artUrl/preservation/dps-ingest-api:$BRANCH_TAG-$VERSION'
+                       // sh 'BUILD_ID=$BRANCH_TAG-$VERSION && /usr/local/bin/docker-compose -f docker-compose.build.yml up -d'
+                       // sh '/usr/bin/bash -x health_mon/build/health_check.sh'
+                    }
+        }
+
 		//stage('Test') {
 		//	agent any
 		//	steps {
