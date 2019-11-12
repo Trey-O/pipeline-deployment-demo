@@ -6,6 +6,8 @@ pipeline {
 	stages {
 		stage('Build') {
 			when{
+				
+				
 				expression { branch 'master' || 'develop' }
 			}
 			agent any
