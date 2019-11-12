@@ -10,7 +10,6 @@ pipeline {
 			}
 			
 			
-			
 			agent any
 			steps {
 				echo 'HELLO WORLD'
