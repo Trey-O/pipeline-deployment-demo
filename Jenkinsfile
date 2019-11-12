@@ -9,7 +9,6 @@ pipeline {
 				expression { branch 'master' || 'develop' }
 			}
 			
-			
 			agent any
 			steps {
 				echo 'HELLO WORLD'
