@@ -11,6 +11,7 @@ pipeline {
 			
 			agent any
 			steps {
+				sh "sleep 30" 
 				echo 'HELLO WORLD'
 				sh 'printenv'
 				echo GIT_BRANCH
