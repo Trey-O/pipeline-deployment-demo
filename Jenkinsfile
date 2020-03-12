@@ -12,15 +12,15 @@ pipeline {
         }
 		
  stage('do something') {
-
         steps
-                {
-                   
-                        def job = build job: "listPlugins",parameters: []
-                        env.my_new_result = job.buildVariables.my_new_result
-
-                    sh "echo  ${env.my_new_result}" 
-                }
+	 {
+	  script{
+           def job = build job: "listPlugins",parameters: []
+           env.my_new_result = job.buildVariables.my_new_result
+	  }
+           sh "echo  ${env.my_new_result}" 
+           
+         }
     }
 		stage('Build') {
 			when{
