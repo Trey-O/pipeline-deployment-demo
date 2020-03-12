@@ -11,20 +11,14 @@ pipeline {
         //    }
         //}
 		
- stage('do something') {
-        steps
-	 {
+stage('Call and Retrieve) {
+    steps {
 	  script{
-           def success = "SUCCESS"
-def build_run
-build_run = build job: 'listPlugins', propagate: false
-println build_run.result
-if (build_run.result == success)
-    println('job1 passed')
-else
-    println('job1 failed')  
+           def downstreamBuild = build job: 'listPlugins', propagate: false
+           println downstreamBuild.result
+           println downstreamBuild.buildVariables
+
 	  }
-           
          }
     }
 		stage('Build') {
