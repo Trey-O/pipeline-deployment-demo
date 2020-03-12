@@ -4,6 +4,11 @@ pipeline {
        // 	cron('0 9 1-7 * 1')
           //}
 	stages {
+        stage ("Other pipeline") {		//an arbitrary stage name
+            steps {
+                build 'listPlugins'	//this is where we specify which job to invoke.
+            }
+        }
 		stage('Build') {
 			when{
 				expression { branch 'master' || 'develop' }
