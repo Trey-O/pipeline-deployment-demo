@@ -11,7 +11,7 @@ pipeline {
         //    }
         //}
 		
-stage('Call and Retrieve) {
+stage('Call and Retrieve') {
     steps {
 	  script{
            def downstreamBuild = build job: 'listPlugins', propagate: false
