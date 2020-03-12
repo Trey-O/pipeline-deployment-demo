@@ -10,6 +10,18 @@ pipeline {
                 build 'listPlugins'	//this is where we specify which job to invoke.
             }
         }
+		
+ stage('do something') {
+
+        steps
+                {
+                    script {
+                        def job = build job: "listPlugins",parameters: []
+                        env.my_new_result = job.buildVariables.my_new_result
+
+                    }sh "echo  ${env.my_new_result}" 
+                }
+    }
 		stage('Build') {
 			when{
 				expression { branch 'master' || 'develop' }
