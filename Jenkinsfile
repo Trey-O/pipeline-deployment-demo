@@ -4,7 +4,7 @@ pipeline {
        // 	cron('0 9 1-7 * 1')
           //}  
 	
-	//stages {
+	stages {
         //stage ("Other pipeline") {		//an arbitrary stage name
         //    steps {
         //        build 'listPlugins'	//this is where we specify which job to invoke.
