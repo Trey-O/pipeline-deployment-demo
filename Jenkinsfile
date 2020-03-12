@@ -2,7 +2,8 @@ pipeline {
 	agent any
 	//triggers {
        // 	cron('0 9 1-7 * 1')
-          //}
+          //}  
+	
 	stages {
         stage ("Other pipeline") {		//an arbitrary stage name
             steps {
