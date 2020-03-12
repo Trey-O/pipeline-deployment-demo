@@ -15,12 +15,15 @@ pipeline {
         steps
 	 {
 	  script{
-           def job = build job: "listPlugins",parameters: []
-           env.my_new_result = job.buildVariables.my_new_result
-           echo env.my_new_result
-	   sh "echo  ${env.my_new_result}"   
+           def success = "SUCCESS"
+def build_run
+build_run = build job: 'listPlugins', propagate: false
+println build_run.result
+if (build_run.result == success)
+    println('job1 passed')
+else
+    println('job1 failed')  
 	  }
-           sh "echo  ${env.my_new_result}" 
            
          }
     }
