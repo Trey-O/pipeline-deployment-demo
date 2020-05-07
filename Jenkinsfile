@@ -1,5 +1,5 @@
 pipeline {
-	agent any
+	agent 'maven'
 	//triggers {
        // 	cron('0 9 1-7 * 1')
           //}  
