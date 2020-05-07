@@ -12,36 +12,37 @@ pipeline {
         //}
 		
 stage('Call and Retrieve') {
+	@AlexLibrary
     steps {
-	  script{
-           def downstreamBuild = build job: 'listPlugins', propagate: false
-           println downstreamBuild.result
-           println downstreamBuild.buildVariables
+	  //script{
+          // def downstreamBuild = build job: 'listPlugins', propagate: false
+          // println downstreamBuild.result
+          // println downstreamBuild.buildVariables
 
-	  }
+	  //}
          }
     }
-		stage('Build') {
-			when{
+		//stage('Build') {
+		//	when{
 				expression { branch 'master' || 'develop' }
-			}
+		//	}
 			
-			agent any
-			steps {
-				sh "sleep 30" 
-				echo 'HELLO WORLD'
-				sh 'printenv'
-				echo GIT_BRANCH
-				
-				script{
-				def GIT_COMMITTER_EMAIL = sh (
-      					script: 'git --no-pager show -s --format=\'%ae\'',
-      					returnStdout: true
-				).trim()
-				echo GIT_COMMITTER_EMAIL
+		//	agent any
+		//	steps {
+		//		sh "sleep 30" 
+		//		echo 'HELLO WORLD'
+		//		sh 'printenv'
+		//		echo GIT_BRANCH
+		//		
+		///		script{
+		//		def GIT_COMMITTER_EMAIL = sh (
+      		//			script: 'git --no-pager show -s --format=\'%ae\'',
+      		//			returnStdout: true
+		//		).trim()
+		////		echo GIT_COMMITTER_EMAIL
 				}
-			}
-		}
+		//	}
+		/*}
 		stage('Test') {
 			steps {
 				unstash 'myApp'
@@ -70,6 +71,6 @@ stage('Call and Retrieve') {
 		//			echo 'Deploying...'
 		//		}
 		//	}
-		//}
+		//}*/
 	}
 }
