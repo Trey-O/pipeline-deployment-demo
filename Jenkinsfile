@@ -5,6 +5,7 @@ stage('Demo'){
     sayHello 'Dave'	
 }
 /*
+
 pipeline {
 	agent 'maven'
 	//triggers {
