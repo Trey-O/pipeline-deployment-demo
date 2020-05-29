@@ -1,9 +1,10 @@
+@Library('my-shared-library')_
 pipeline{
 	agent any
 	
 
 	stages{
-		@Library('my-shared-library')_
+		
 		stage('Demo'){
 			steps {
 				echo "DO THE CHECKOUT:"
