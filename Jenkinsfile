@@ -1,3 +1,10 @@
+@Library('my-shared-library')_
+
+stage('Demo'){
+    echo 'Hello world'
+    sayHello 'Dave'	
+}
+/*
 pipeline {
 	agent 'maven'
 	//triggers {
@@ -71,6 +78,6 @@ stage('Call and Retrieve') {
 		//			echo 'Deploying...'
 		//		}
 		//	}
-		//}*/
+		//}
 	}
-}
+}*/
