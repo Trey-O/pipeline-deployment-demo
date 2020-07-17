@@ -1,5 +1,5 @@
 @Library('my-shared-library')_
-@Library(value="build-pipeline", changelog=false) _
+@Library('build-pipeline')_
 
 def lr = new LighthouseRunner(this)
 
