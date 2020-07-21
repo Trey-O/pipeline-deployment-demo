@@ -1,11 +1,11 @@
 //@Library('my-shared-library')_
-@Library('build-pipeline')_
+@Library(['build-pipeline','my-shared-library'])_
 
-def lr = new lighthouseRunner(this)
+//def lr = new lighthouseRunner(this)
 
 node {
   stage('checkout'){
-  //sayHello('Checkout')
+  sayHello('Checkout')
   }
 }
 
