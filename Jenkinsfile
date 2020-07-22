@@ -5,7 +5,7 @@
 
 node {
   stage('checkout'){
-    sayHello.printSomething()
+    printSomething.printSomething()
   }
 }
 
